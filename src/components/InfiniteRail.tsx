@@ -31,6 +31,14 @@ export function InfiniteRail({ items }: { items: Project[] }) {
     return () => cancelAnimationFrame(frame);
   }, [items]);
 
+  useEffect(() => {
+    const openActive = (event: KeyboardEvent) => {
+      if (event.key === "Enter" && active) window.location.assign(active.href);
+    };
+    window.addEventListener("keydown", openActive);
+    return () => window.removeEventListener("keydown", openActive);
+  }, [active]);
+
   function handleWheel(event: React.WheelEvent<HTMLDivElement>) {
     const rail = railRef.current;
     if (!rail) return;
