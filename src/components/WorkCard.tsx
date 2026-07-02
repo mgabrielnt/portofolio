@@ -12,12 +12,13 @@ export function WorkCard({
 }) {
   const light = item.theme === "light";
   return (
-    <a
-      href={item.href}
+    <button
+      type="button"
+      onClick={() => onActive(item)}
       onMouseEnter={() => onActive(item)}
       onFocus={() => onActive(item)}
       className={cn(
-        "group relative block h-[232px] min-w-[360px] overflow-hidden rounded border p-5 md:min-w-[520px]",
+        "group relative block h-[232px] min-w-[360px] overflow-hidden rounded border p-5 text-left outline-none md:min-w-[520px]",
         light ? "border-black/10 bg-bone text-black" : "border-line bg-card text-paper",
         active && "ring-1 ring-white/40"
       )}
@@ -36,6 +37,6 @@ export function WorkCard({
           {item.kicker}
         </p>
       </div>
-    </a>
+    </button>
   );
 }
