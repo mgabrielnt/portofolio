@@ -6,7 +6,7 @@ import { RecognitionBlock } from "./RecognitionBlock";
 
 export function TopGrid() {
   return (
-    <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-[1.25fr_1.25fr_1.5fr_1.25fr_1.25fr] xl:gap-12">
+    <div className="relative z-10 grid gap-6 text-[12px] md:grid-cols-2 xl:grid-cols-[1.2fr_1.2fr_1.45fr_1.25fr_1.2fr] xl:gap-10">
       <IntroBlock />
       <PositionBlock />
       <RecognitionBlock />
