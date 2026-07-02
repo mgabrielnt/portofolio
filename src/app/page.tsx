@@ -9,7 +9,7 @@ export default function HomePage() {
   return (
     <main className="cursor-page min-h-screen overflow-hidden bg-ink text-paper">
       <Cursor />
-      <section className="relative min-h-screen overflow-hidden px-3 py-3 md:h-[74svh] md:min-h-[620px] md:max-h-[760px] md:px-4">
+      <section className="relative h-[690px] overflow-hidden px-3 py-3 md:h-[74vh] md:min-h-[690px] md:max-h-[810px] md:px-4">
         <TopGrid />
         <HeroStatement />
         <ScrollMark />
