@@ -1,4 +1,5 @@
-export type Preview = "chart" | "model" | "pipeline" | "web";
+export type Preview = "chart" | "model" | "pipeline" | "web" | "award";
+export type WorkKind = "project" | "award";
 
 export type Project = {
   slug: string;
@@ -6,35 +7,53 @@ export type Project = {
   kicker: string;
   theme: "dark" | "light";
   preview: Preview;
+  kind: WorkKind;
+  href: string;
   stack: string[];
   summary: string;
   metrics: string[];
 };
 
-export const projects: Project[] = [
-  project("stockforecast", "StockForecast", "light", "chart"),
-  project("llm-tft", "LLM-TFT", "dark", "model"),
-  project("ai-sentiment", "AI Sentiment", "dark", "pipeline"),
-  project("dashboard", "Dashboard Infrastructure", "light", "web"),
-  project("portfolio-system", "Portfolio System", "dark", "web"),
-  project("market-pipeline", "Market Pipeline", "light", "pipeline"),
-  project("xai-reports", "XAI Reports", "dark", "chart"),
-  project("resume-matcher", "Resume Matcher", "light", "model"),
-];
+const stack = ["Next.js", "Python", "AI/Data"];
+const metrics = ["Research-ready", "Deploy-ready", "Portfolio-ready"];
 
-function project(slug: string, title: string, theme: "dark" | "light", preview: Preview) {
+function item(slug: string, title: string, kind: WorkKind, theme: "dark" | "light", preview: Preview): Project {
   return {
     slug,
     title,
+    kind,
     theme,
     preview,
-    kicker: "selected work / interface preview",
-    stack: ["Next.js", "Python", "AI/Data"],
+    href: `/projects/${slug}`,
+    kicker: kind === "project" ? "selected work / interface preview" : "recognition / award preview",
+    stack,
     summary: `${title} case study for AI, data, dashboard, and web systems.`,
-    metrics: ["Research-ready", "Deploy-ready", "Portfolio-ready"],
+    metrics,
   };
 }
 
+export const projects: Project[] = [
+  item("stockforecast", "StockForecast", "project", "light", "chart"),
+  item("llm-tft", "LLM-TFT", "project", "dark", "model"),
+  item("ai-sentiment", "AI Sentiment", "project", "dark", "pipeline"),
+  item("dashboard", "Dashboard Infrastructure", "project", "light", "web"),
+  item("portfolio-system", "Portfolio System", "project", "dark", "web"),
+  item("market-pipeline", "Market Pipeline", "project", "light", "pipeline"),
+  item("xai-reports", "XAI Reports", "project", "dark", "chart"),
+  item("resume-matcher", "Resume Matcher", "project", "light", "model"),
+];
+
+export const awards: Project[] = [
+  item("llm-tft-thesis", "LLM-TFT Thesis", "award", "light", "award"),
+  item("data-science-101", "Data Science 101", "award", "dark", "award"),
+  item("aca-cloud", "ACA Cloud", "award", "dark", "award"),
+  item("oracle-db", "Oracle DB", "award", "light", "award"),
+  item("mandiri-sekuritas", "Mandiri Sekuritas", "award", "dark", "award"),
+  item("undip", "Universitas Diponegoro", "award", "light", "award"),
+];
+
+export const allWork = [...projects, ...awards];
+
 export function getProject(slug: string) {
-  return projects.find((project) => project.slug === slug);
+  return allWork.find((project) => project.slug === slug);
 }
