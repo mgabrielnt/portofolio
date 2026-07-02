@@ -1,3 +1,4 @@
+import { Cursor } from "@/components/Cursor";
 import { HeroStatement } from "@/components/HeroStatement";
 import { ProjectRail } from "@/components/ProjectRail";
 import { ScrollMark } from "@/components/ScrollMark";
@@ -6,18 +7,15 @@ import { WorkTabs } from "@/components/WorkTabs";
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen overflow-hidden bg-ink text-paper">
-      <section className="relative flex min-h-[76vh] flex-col px-3 py-4 md:px-4">
+    <main className="cursor-page min-h-screen overflow-hidden bg-ink text-paper">
+      <Cursor />
+      <section className="relative min-h-screen overflow-hidden px-3 py-3 md:h-[74svh] md:min-h-[620px] md:max-h-[760px] md:px-4">
         <TopGrid />
         <HeroStatement />
         <ScrollMark />
         <WorkTabs />
       </section>
       <ProjectRail />
-      <p className="px-3 pb-5 pt-4 text-[11px] text-muted md:px-4">
-        V1: layout follows the reference composition with top credentials,
-        central statement, native horizontal work cards, and premium dark UI.
-      </p>
     </main>
   );
 }
