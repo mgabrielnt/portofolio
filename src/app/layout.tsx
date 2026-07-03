@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "./reference-tune.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://gabriel-nexus.vercel.app"),
