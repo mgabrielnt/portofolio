@@ -10,36 +10,59 @@ export function WorkPreviewModal({ item, locked, onClose }: {
   if (!item) return null;
 
   const shell = locked
-    ? "fixed inset-0 z-[80] grid place-items-center bg-black/70 px-4 backdrop-blur-md"
-    : "pointer-events-none fixed inset-0 z-[80] grid place-items-center px-4";
+    ? "fixed inset-0 z-[80] bg-black/70 p-2 backdrop-blur-md"
+    : "pointer-events-none fixed inset-0 z-[80] p-2";
 
   return (
     <div className={shell}>
       {locked && <button className="absolute inset-0" type="button" onClick={onClose} aria-label="Close" />}
-      <article className="relative w-full max-w-[980px] overflow-hidden rounded-[10px] border border-line bg-card text-paper shadow-2xl">
+      <article className="relative mx-auto h-[calc(100svh-16px)] w-full max-w-[1500px] overflow-hidden rounded-[8px] border border-black/10 bg-[#f2e8dd] text-black shadow-2xl">
         {locked && (
-          <button type="button" onClick={onClose} className="absolute right-4 top-4 z-20 grid size-9 place-items-center rounded-full bg-black/50 text-sm font-black text-white">
+          <button type="button" onClick={onClose} className="absolute right-4 top-4 z-20 grid size-10 place-items-center rounded-full bg-black text-sm font-black text-white">
             X
           </button>
         )}
-        <div className="aspect-video bg-bone p-6 text-black">
-          <div className="relative size-full overflow-hidden rounded-[8px] border border-black/10 bg-black/5">
-            <div className="absolute inset-x-8 top-8 h-16 rounded bg-black/10" />
-            <div className="absolute inset-x-8 bottom-8 h-28 rounded bg-black/10" />
-            <p className="absolute left-8 top-8 text-[10px] font-black uppercase tracking-[0.2em] text-black/40">video preview</p>
-            <div className="absolute inset-0 grid place-items-center">
-              <div className="grid size-16 place-items-center rounded-full bg-black/20 text-sm font-black">PLAY</div>
+        <header className="flex h-[48%] flex-col justify-center border-b border-black/10 px-[3vw]">
+          <h2 className="max-w-[1320px] text-[clamp(54px,7.9vw,148px)] font-normal leading-[0.98] tracking-[-0.065em]">
+            Innovation built
+            <br />
+            on dynamic <span className="inline-flex items-center gap-[0.18em] rounded-full border border-[#4a86f3] px-[0.18em] text-[#4a86f3]">
+              data <span className="inline-block size-[0.8em] rounded-full bg-[#4a86f3]" />
+            </span>
+          </h2>
+        </header>
+        <section className="grid h-[52%] grid-cols-[1fr_1.04fr]">
+          <div className="flex flex-col justify-between border-r border-black/10 px-[2.5vw] py-[4vh]">
+            <InfoRow number="01." color="#a855f7" title={item.title} label="Automated professional property" />
+            <InfoRow number="02." color="#4a86f3" title={item.kind === "project" ? "Launch-ready preview" : "Recognition-ready proof"} label="Interactive work showcase" />
+          </div>
+          <div className="p-[4vh_3vw]">
+            <div className="relative size-full overflow-hidden rounded-[10px] bg-[#dbe5f0]">
+              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,.55),rgba(255,255,255,0)),radial-gradient(circle_at_50%_85%,rgba(0,0,0,.24),transparent_38%)]" />
+              <div className="absolute inset-x-[18%] bottom-0 h-[68%] bg-black/10" />
+              <p className="absolute left-6 top-5 text-[11px] font-black uppercase tracking-[0.2em] text-black/35">
+                preview frame
+              </p>
+              <div className="absolute inset-0 grid place-items-center">
+                <div className="grid size-20 place-items-center rounded-full bg-white/75 text-sm font-black shadow-xl">PLAY</div>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="flex items-end justify-between gap-6 p-5">
-          <div>
-            <p className="text-[10px] font-black uppercase tracking-[0.18em] text-muted">{item.kind} preview</p>
-            <h2 className="mt-2 text-4xl font-black leading-[0.9] tracking-[-0.07em]">{item.title}</h2>
-          </div>
-          <p className="hidden max-w-xs text-right text-xs font-bold leading-tight text-muted md:block">{item.summary}</p>
-        </div>
+        </section>
       </article>
+    </div>
+  );
+}
+
+function InfoRow({ number, color, title, label }: { number: string; color: string; title: string; label: string }) {
+  return (
+    <div>
+      <div className="mb-4 h-1 w-full" style={{ background: color }} />
+      <p className="text-xs text-black/70">{number}</p>
+      <div className="mt-[9vh] grid grid-cols-2 gap-8 text-[clamp(18px,1.7vw,30px)] leading-tight text-black/42">
+        <p>{label}</p>
+        <p className="text-[clamp(12px,1vw,16px)] text-black/30">{title}</p>
+      </div>
     </div>
   );
 }
