@@ -28,7 +28,7 @@ export function InfiniteRail({ items }: { items: Project[] }) {
     let frame = 0;
     let last = performance.now();
     const tick = (time: number) => {
-      if (!paused.current) rail.scrollLeft += (time - last) * 0.04;
+      if (!paused.current) rail.scrollLeft += (time - last) * 0.16;
       last = time;
       normalize(rail);
       frame = requestAnimationFrame(tick);
@@ -52,8 +52,8 @@ export function InfiniteRail({ items }: { items: Project[] }) {
     suppressPreview.current = true;
     if (!locked) setPreview(null);
     if (suppressTimer.current) window.clearTimeout(suppressTimer.current);
-    suppressTimer.current = window.setTimeout(() => { suppressPreview.current = false; }, 260);
-    rail.scrollLeft += event.deltaY + event.deltaX;
+    suppressTimer.current = window.setTimeout(() => { suppressPreview.current = false; }, 220);
+    rail.scrollLeft += (event.deltaY + event.deltaX) * 2.4;
     normalize(rail);
   }
 
