@@ -19,7 +19,7 @@ export function WorkPreviewModal({ item, locked, onClose }: {
       <article className="relative w-full max-w-[980px] overflow-hidden rounded-[10px] border border-line bg-card text-paper shadow-2xl">
         {locked && (
           <button type="button" onClick={onClose} className="absolute right-4 top-4 z-20 grid size-9 place-items-center rounded-full bg-black/50 text-sm font-black text-white">
-            CLOSE
+            X
           </button>
         )}
         <div className="aspect-video bg-bone p-6 text-black">
