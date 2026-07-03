@@ -33,6 +33,14 @@ button { font: inherit; }
 .cursor-page, .cursor-page a, .cursor-page button { cursor: none; }
 [data-work-card] { transition: transform .25s ease; }
 [data-work-card]:hover { transform: translateY(-4px); }
+.rail-track { animation: rail-marquee 50s linear infinite; will-change: transform; }
+@keyframes rail-marquee {
+  from { transform: translate3d(0,0,0); }
+  to { transform: translate3d(-50%,0,0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .rail-track { animation-duration: 120s; }
+}
 @media (pointer: coarse) {
   .cursor-page, .cursor-page a, .cursor-page button { cursor: auto; }
 }
