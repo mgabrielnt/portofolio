@@ -15,6 +15,8 @@ function normalize(rail: HTMLDivElement) {
 export function InfiniteRail({ items }: { items: Project[] }) {
   const railRef = useRef<HTMLDivElement>(null);
   const paused = useRef(false);
+  const suppressPreview = useRef(false);
+  const suppressTimer = useRef<number | null>(null);
   const [active, setActive] = useState<Project | null>(null);
   const [preview, setPreview] = useState<Project | null>(null);
   const [locked, setLocked] = useState(false);
@@ -36,12 +38,21 @@ export function InfiniteRail({ items }: { items: Project[] }) {
     return () => cancelAnimationFrame(frame);
   }, [items]);
 
-  function activate(work: Project) { setActive(work); if (!locked) setPreview(work); }
+  function activate(work: Project) {
+    setActive(work);
+    if (!locked && !suppressPreview.current) setPreview(work);
+  }
+
   function leave() { paused.current = false; setActive(null); if (!locked) setPreview(null); }
+
   function wheel(event: React.WheelEvent<HTMLDivElement>) {
     const rail = railRef.current;
     if (!rail) return;
     event.preventDefault();
+    suppressPreview.current = true;
+    if (!locked) setPreview(null);
+    if (suppressTimer.current) window.clearTimeout(suppressTimer.current);
+    suppressTimer.current = window.setTimeout(() => { suppressPreview.current = false; }, 260);
     rail.scrollLeft += event.deltaY + event.deltaX;
     normalize(rail);
   }
