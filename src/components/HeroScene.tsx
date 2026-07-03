@@ -31,14 +31,14 @@ export function HeroScene() {
   }, []);
 
   return (
-    <section className="pointer-events-none absolute bottom-[72px] left-0 right-0 z-0 h-[120px]">
+    <section className="pointer-events-none absolute bottom-[72px] left-0 right-0 z-0 h-[148px]">
       {scenes.map((scene, index) => {
         const center = index / (scenes.length - 1);
         const opacity = clamp(1 - Math.abs(progress - center) * 3.2);
-        const y = (progress - center) * -18;
+        const y = (progress - center) * -16;
         return (
-          <div key={scene.x} className="absolute top-0 max-w-[520px]" style={{ left: scene.x, textAlign: scene.align, opacity, transform: `translate(${scene.shift}, ${y}px)` }}>
-            <h1 className="text-[30px] font-black leading-[1.05] tracking-[-0.052em] md:text-[36px] xl:text-[42px]">
+          <div key={scene.x} className="absolute top-0 flex h-full max-w-[520px] items-center" style={{ left: scene.x, textAlign: scene.align, opacity, transform: `translate(${scene.shift}, ${y}px)` }}>
+            <h1 className="text-[30px] font-black leading-[1.08] tracking-[-0.052em] md:text-[36px] xl:text-[40px]">
               {scene.lines.map((line) => <span key={line} className="block">{line}</span>)}
             </h1>
           </div>
