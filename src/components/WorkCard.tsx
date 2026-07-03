@@ -15,12 +15,13 @@ export function WorkCard({
   const light = item.theme === "light";
   return (
     <button
+      data-work-card
       type="button"
       onClick={() => onOpen(item)}
       onMouseEnter={() => onActive(item)}
       onFocus={() => onActive(item)}
       className={cn(
-        "group relative block h-[238px] min-w-[78vw] overflow-hidden rounded-[6px] border p-5 text-left outline-none md:min-w-[500px] xl:min-w-[560px]",
+        "group relative block h-[238px] w-[82vw] flex-none overflow-hidden rounded-[6px] border p-5 text-left outline-none md:w-[500px] xl:w-[560px]",
         light ? "border-black/10 bg-bone text-black" : "border-line bg-card text-paper",
         active && "ring-1 ring-white/40"
       )}
