@@ -15,10 +15,10 @@ export function ConnectBlock() {
       </div>
       <div className="mt-6 text-sm font-black leading-tight">
         <p>{profile.availability}</p>
-        <p>{profile.status}</p>
+        <p>Book 30-Min Discovery Call</p>
       </div>
       <div className="mt-4 flex gap-3 text-[11px] font-black uppercase text-muted">
-        <Link href="/contact" className="border border-line px-4 py-3">Contact</Link>
+        <Link href="mailto:your.email@example.com" className="border border-line px-4 py-3">Contact</Link>
         <Link href="/cv" className="border border-line px-4 py-3">CV</Link>
       </div>
     </article>
