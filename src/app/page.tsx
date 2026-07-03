@@ -6,14 +6,16 @@ import { WorkShowcase } from "@/components/WorkShowcase";
 
 export default function HomePage() {
   return (
-    <main className="cursor-page min-h-screen overflow-hidden bg-ink text-paper">
+    <main className="cursor-page flex h-screen overflow-hidden bg-ink text-paper">
       <Cursor />
-      <section className="relative h-[500px] overflow-hidden px-3 py-3 md:h-[calc(100svh-235px)] md:min-h-[500px] md:max-h-[560px] md:px-4">
-        <TopGrid />
-        <HeroScene />
-        <ScrollMark />
-      </section>
-      <WorkShowcase />
+      <div className="flex min-h-0 w-full flex-col">
+        <section className="relative min-h-0 flex-1 overflow-hidden px-3 py-3 md:px-4">
+          <TopGrid />
+          <HeroScene />
+          <ScrollMark />
+        </section>
+        <WorkShowcase />
+      </div>
     </main>
   );
 }
