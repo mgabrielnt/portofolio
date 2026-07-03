@@ -9,6 +9,7 @@ export function WorkPreviewModal({ item, locked, onClose }: {
   const shell = locked
     ? "fixed inset-0 z-[80] bg-black/70 p-2 backdrop-blur-md"
     : "pointer-events-none fixed inset-0 z-[80] p-2";
+  const mobileCards = [item.title, "StockForecast", "LLM-TFT", "AI Sentiment"];
 
   return (
     <div className={shell}>
@@ -31,7 +32,7 @@ export function WorkPreviewModal({ item, locked, onClose }: {
       <article className="relative mx-auto h-[calc(100svh-16px)] w-full overflow-y-auto rounded-[8px] border border-line bg-[#111] p-3 text-paper shadow-2xl md:hidden">
         {locked && <Close onClose={onClose} />}
         <header className="flex items-start justify-between text-[11px] font-black uppercase leading-tight">
-          <div className="flex gap-2"><div className="size-8 bg-white/10" /><div><p>Mangelek Gabriel</p><p className="font-mono normal-case">AI / Data / Web</p></div></div>
+          <div className="flex gap-2"><div className="grid size-8 place-items-center bg-white/10">GT</div><div><p>Gabriel Tambun</p><p className="font-mono normal-case">AI / Data / Web</p></div></div>
           <button type="button" onClick={onClose}>Credentials<br />Open [+]</button>
         </header>
         <h2 className="mt-10 text-[25px] font-black leading-[1.08] tracking-[-0.055em]">
@@ -41,7 +42,7 @@ export function WorkPreviewModal({ item, locked, onClose }: {
           I’m based in Indonesia, building global-ready AI portfolios for data, dashboard, and web engineering roles.
         </p>
         <div className="mt-14 flex gap-3 overflow-hidden">
-          {[item.title, "StockForecast", "LLM-TFT"].map((title) => <div key={title} className="h-28 min-w-[250px] rounded bg-bone text-black"><p className="p-4 text-4xl font-black tracking-[-0.07em]">{title}</p></div>)}
+          {mobileCards.map((title, index) => <div key={`${title}-${index}`} className="h-28 min-w-[250px] rounded bg-bone text-black"><p className="p-4 text-4xl font-black tracking-[-0.07em]">{title}</p></div>)}
         </div>
         <section className="mt-16 text-sm font-bold leading-tight"><p className="mb-4"><span className="text-accent">●</span> CONNECT</p><p>LinkedIn</p><p>Email</p><p>GitHub</p><p>WhatsApp</p><p className="mt-6">Available August 2026</p><p>Book 30-Min Discovery Call</p></section>
         <div className="mt-6 grid gap-3 text-center text-xs font-black uppercase"><button className="border border-dashed border-line py-5">Schedule a call</button><button className="border border-dashed border-line py-5">Cost estimate</button></div>
