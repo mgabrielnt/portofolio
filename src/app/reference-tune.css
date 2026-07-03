@@ -1,0 +1,25 @@
+[data-work-card] {
+  height: 182px;
+  width: 320px;
+  padding: 16px;
+}
+
+[data-work-card] h2 {
+  font-size: 32px;
+  line-height: 0.9;
+}
+
+[data-work-card] p:last-child {
+  margin-top: 12px;
+}
+
+.rail-track {
+  gap: 24px;
+}
+
+@media (max-width: 767px) {
+  [data-work-card] {
+    width: 82vw;
+    height: 210px;
+  }
+}
