@@ -3,14 +3,12 @@
 import { useEffect, useRef, useState } from "react";
 
 const scenes = [
-  { left: 36, align: "left" as const, lines: ["An AI/Data developer and", "delivery partner for modern systems."] },
-  { left: 50, align: "center" as const, lines: ["I coordinate complete builds", "from data to dashboard launch."] },
-  { left: 64, align: "right" as const, lines: ["Delivery built for career growth", "and polished digital presence."] },
+  { x: "24px", t: "translateY", align: "left" as const, lines: ["I build intelligent data systems", "and launch-ready web portfolios.", "A trusted AI/Data partner for", "career-focused digital systems."] },
+  { x: "50%", t: "translateX", align: "center" as const, lines: ["I coordinate complete builds", "from data to dashboard launch.", "Delivery built for polish", "and measurable career growth."] },
+  { x: "calc(100% - 24px)", t: "translateEnd", align: "right" as const, lines: ["Rooted in Indonesia", "building global-ready portfolios", "for AI, data, dashboard", "and web engineering roles."] },
 ];
 
-function clamp(value: number) {
-  return Math.max(0, Math.min(1, value));
-}
+function clamp(value: number) { return Math.max(0, Math.min(1, value)); }
 
 export function HeroScene() {
   const [progress, setProgress] = useState(0);
@@ -19,24 +17,14 @@ export function HeroScene() {
   useEffect(() => {
     let frame = 0;
     const render = () => {
-      setProgress((value) => value + (target.current - value) * 0.09);
+      setProgress((value) => value + (target.current - value) * 0.08);
       frame = requestAnimationFrame(render);
     };
-    const sync = () => { target.current = clamp(window.scrollY / 1050); };
-    const wheel = (event: WheelEvent) => {
-      const node = event.target as Element | null;
-      if (node?.closest("#projects")) return;
-      target.current = clamp(target.current + event.deltaY * 0.00055);
-    };
+    const sync = () => { target.current = clamp(window.scrollY / 1100); };
     sync();
     frame = requestAnimationFrame(render);
     window.addEventListener("scroll", sync, { passive: true });
-    window.addEventListener("wheel", wheel, { passive: true });
-    return () => {
-      cancelAnimationFrame(frame);
-      window.removeEventListener("scroll", sync);
-      window.removeEventListener("wheel", wheel);
-    };
+    return () => { cancelAnimationFrame(frame); window.removeEventListener("scroll", sync); };
   }, []);
 
   return (
@@ -44,20 +32,18 @@ export function HeroScene() {
       {scenes.map((scene, index) => {
         const center = index / (scenes.length - 1);
         const distance = Math.abs(progress - center) * 2;
-        const opacity = clamp(1 - distance * 1.45);
-        const y = (progress - center) * -42;
+        const opacity = clamp(1 - distance * 1.55);
+        const y = (progress - center) * -34;
+        const base = scene.t === "translateX" ? "translate(-50%," : scene.t === "translateEnd" ? "translate(-100%," : "translate(0,";
         return (
           <div
-            key={scene.left}
-            className="absolute top-[61%] max-w-[660px] -translate-x-1/2 -translate-y-1/2"
-            style={{ left: `${scene.left}%`, textAlign: scene.align, opacity, transform: `translate(-50%, calc(-50% + ${y}px))` }}
+            key={scene.x}
+            className="absolute top-[56%] max-w-[620px]"
+            style={{ left: scene.x, textAlign: scene.align, opacity, transform: `${base} calc(-50% + ${y}px))` }}
           >
-            <h1 className="text-[34px] font-black leading-[1.02] tracking-[-0.066em] md:text-[clamp(40px,3.2vw,62px)]">
+            <h1 className="text-[34px] font-black leading-[1.1] tracking-[-0.052em] md:text-[clamp(34px,2.55vw,48px)]">
               {scene.lines.map((line) => <span key={line} className="block">{line}</span>)}
             </h1>
-            <p className="mt-5 text-sm font-bold leading-tight text-muted">
-              Forecasting, automation, dashboard systems, and deploy-ready products.
-            </p>
           </div>
         );
       })}
