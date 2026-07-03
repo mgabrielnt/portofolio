@@ -11,8 +11,8 @@ export function WorkShowcase() {
   const items = tab === "projects" ? projects : awards;
 
   return (
-    <section id="projects" className="relative pb-8 pt-2 md:pt-0">
-      <div className="mb-6 flex justify-center">
+    <section id="projects" className="relative pb-5">
+      <div className="mb-4 flex justify-center">
         <div className="rounded-full border border-line bg-ink/70 p-1 text-[11px] font-black backdrop-blur">
           <button
             type="button"
