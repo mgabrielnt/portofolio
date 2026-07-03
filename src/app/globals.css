@@ -23,9 +23,7 @@ button { font: inherit; }
 ::selection { background: #635bff; color: white; }
 .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 .hide-scrollbar::-webkit-scrollbar { display: none; }
-.scanline {
-  background: repeating-linear-gradient(90deg, transparent 0 7px, rgba(255,255,255,.22) 7px 9px);
-}
+.scanline { background: repeating-linear-gradient(90deg, transparent 0 7px, rgba(255,255,255,.22) 7px 9px); }
 .noise::before {
   pointer-events: none; content: ""; position: fixed; inset: 0; opacity: .035;
   background-image: radial-gradient(#fff .7px, transparent .7px); background-size: 4px 4px;
@@ -38,9 +36,5 @@ button { font: inherit; }
   from { transform: translate3d(0,0,0); }
   to { transform: translate3d(-50%,0,0); }
 }
-@media (prefers-reduced-motion: reduce) {
-  .rail-track { animation-duration: 120s; }
-}
-@media (pointer: coarse) {
-  .cursor-page, .cursor-page a, .cursor-page button { cursor: auto; }
-}
+@media (prefers-reduced-motion: reduce) { .rail-track { animation-duration: 120s; } }
+@media (pointer: coarse) { .cursor-page, .cursor-page a, .cursor-page button { cursor: auto; } }
