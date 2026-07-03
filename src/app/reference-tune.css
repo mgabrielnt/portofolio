@@ -17,6 +17,20 @@
   gap: 24px;
 }
 
+.cursor-page article {
+  font-size: 13px;
+  line-height: 1.12;
+}
+
+.cursor-page article .text-sm {
+  font-size: 13px;
+  line-height: 1.12;
+}
+
+.cursor-page article .mt-6 {
+  margin-top: 20px;
+}
+
 @media (max-width: 767px) {
   [data-work-card] {
     width: 82vw;
