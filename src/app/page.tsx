@@ -8,7 +8,9 @@ import { WorkShowcase } from "@/components/WorkShowcase";
 export default function HomePage() {
   return (
     <>
-      <MobileHome />
+      <div className="md:hidden">
+        <MobileHome />
+      </div>
       <main className="cursor-page hidden h-screen overflow-hidden bg-ink text-paper md:flex">
         <Cursor />
         <div className="flex min-h-0 w-full flex-col">
