@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { ecosystem, highlights, links, metrics, profile, recognitions } from "@/data/profile";
 import { projects } from "@/data/projects";
+import { InfiniteRail } from "./InfiniteRail";
 
 export function MobileHome() {
   const [open, setOpen] = useState(false);
@@ -18,7 +19,6 @@ export function MobileHome() {
           Credentials<br />Open[{open ? "-" : "+"}]
         </button>
       </header>
-
       {open ? <Credentials /> : <MobileLanding />}
     </main>
   );
@@ -31,26 +31,18 @@ function MobileLanding() {
         <p>I build intelligent data systems and launch-ready web portfolios. I coordinate clean dashboard launches and AI product previews.</p>
         <p>I’m based in Indonesia, building global-ready AI portfolios for data, dashboard, and web engineering roles.</p>
       </section>
-      <div className="mt-16 flex gap-3 overflow-x-auto pb-2">
-        {projects.slice(0, 4).map((project) => (
-          <div key={project.slug} className="h-32 min-w-[260px] rounded bg-bone text-black">
-            <p className="p-4 text-4xl font-black tracking-[-0.07em]">{project.title}</p>
-          </div>
-        ))}
-      </div>
+      <div className="mt-16 -mx-3"><InfiniteRail items={projects} /></div>
       <section className="mt-16 text-sm font-bold leading-tight">
         <p className="mb-4"><span className="text-accent">●</span> CONNECT</p>
         {links.map((link) => <a key={link.label} href={link.href} className="block">{link.label}</a>)}
-        <p className="mt-6">{profile.availability}</p>
-        <p>Book 30-Min Discovery Call</p>
+        <p className="mt-6">{profile.availability}</p><p>Book 30-Min Discovery Call</p>
       </section>
       <div className="mt-6 grid gap-3 text-center text-xs font-black uppercase tracking-[0.06em]">
         <a href="mailto:your.email@example.com" className="border border-dashed border-line py-5">Schedule a call</a>
         <a href="/cv" className="border border-dashed border-line py-5">Cost estimate</a>
       </div>
       <div className="fixed bottom-4 left-1/2 z-20 flex -translate-x-1/2 rounded-full border border-line bg-ink/80 p-1 text-[11px] font-black backdrop-blur">
-        <button className="rounded-full bg-white/15 px-4 py-2">Projects ①</button>
-        <button className="rounded-full px-4 py-2 text-muted">Awards ②</button>
+        <button className="rounded-full bg-white/15 px-4 py-2">Projects ①</button><button className="rounded-full px-4 py-2 text-muted">Awards ②</button>
       </div>
     </>
   );
