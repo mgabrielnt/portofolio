@@ -3,9 +3,21 @@
 import { useEffect, useRef, useState } from "react";
 
 const scenes = [
-  { x: "24px", shift: "0", lines: ["I build intelligent data systems", "and launch-ready web portfolios."] },
-  { x: "50%", shift: "-50%", lines: ["I coordinate complete builds", "from data to dashboard launch."] },
-  { x: "calc(100% - 24px)", shift: "-100%", lines: ["I build career-ready AI systems", "with polished dashboard delivery."] },
+  {
+    x: "24px",
+    shift: "0",
+    copy: "I build intelligent data systems and launch-ready web portfolios for AI, data, and web roles.",
+  },
+  {
+    x: "50%",
+    shift: "-50%",
+    copy: "I coordinate complete builds from data to dashboard launch with clean delivery structure.",
+  },
+  {
+    x: "calc(100% - 24px)",
+    shift: "-100%",
+    copy: "I’m based in Indonesia, building global-ready AI portfolios. I design forecasting systems, dashboard products, and web experiences.",
+  },
 ];
 
 function clamp(value: number) { return Math.max(0, Math.min(1, value)); }
@@ -43,10 +55,10 @@ export function HeroScene() {
           <div
             key={scene.x}
             className="absolute top-0 flex h-full items-center text-left"
-            style={{ left: scene.x, width: "min(560px, calc(100vw - 48px))", opacity, transform: `translate(${scene.shift}, ${y}px)` }}
+            style={{ left: scene.x, width: "min(660px, calc(100vw - 48px))", opacity, transform: `translate(${scene.shift}, ${y}px)` }}
           >
-            <h1 style={{ fontSize: "clamp(24px, min(2.15vw, 4vh), 36px)", lineHeight: 1.1, letterSpacing: "-0.05em" }} className="font-black">
-              {scene.lines.map((line) => <span key={line} className="block">{line}</span>)}
+            <h1 style={{ fontSize: "clamp(24px, min(2.05vw, 4vh), 38px)", lineHeight: 1.18, letterSpacing: "-0.045em" }} className="font-black">
+              {scene.copy}
             </h1>
           </div>
         );
