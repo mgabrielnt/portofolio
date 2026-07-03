@@ -28,15 +28,15 @@ export function HeroScene() {
   }, []);
 
   return (
-    <section className="relative z-0 mt-16 h-[220px] max-w-[640px] md:mt-14">
+    <section className="relative z-0 mt-12 h-[190px] max-w-[620px] md:mt-12">
       {scenes.map((lines, index) => {
         const center = index / (scenes.length - 1);
         const distance = Math.abs(progress - center) * 2;
         const opacity = clamp(1 - distance * 1.55);
-        const y = (progress - center) * -30;
+        const y = (progress - center) * -28;
         return (
           <div key={lines[0]} className="absolute left-0 top-0" style={{ opacity, transform: `translateY(${y}px)` }}>
-            <h1 className="text-[34px] font-black leading-[1.06] tracking-[-0.055em] md:text-[42px]">
+            <h1 className="text-[32px] font-black leading-[1.04] tracking-[-0.052em] md:text-[38px]">
               {lines.map((line) => <span key={line} className="block">{line}</span>)}
             </h1>
           </div>
