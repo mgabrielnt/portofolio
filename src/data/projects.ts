@@ -30,7 +30,7 @@ function media(slug: string, title: string): WorkMedia {
   return {
     image: `${mediaRoot}/images/${slug}.webp`,
     video: `${mediaRoot}/videos/${slug}.mp4`,
-    pdf: `${mediaRoot}/docs/${slug}.pdf`,
+    pdf: `${mediaRoot}/pdf/${slug}.pdf`,
     alt: `${title} preview media`,
   };
 }
