@@ -29,12 +29,13 @@ const metrics = ["Research-ready", "Deploy-ready", "Portfolio-ready"];
 const mediaRoot = "/media/work";
 
 function media(slug: string, title: string): WorkMedia {
-  const image = slug === "stockforecast"
-    ? `${mediaRoot}/images/stockforecast-pro-cover.svg`
-    : `${mediaRoot}/images/${slug}.webp`;
+  const svgCovers = ["stockforecast", "absensiyolo"];
+  const file = svgCovers.includes(slug)
+    ? `${slug === "stockforecast" ? "stockforecast-pro-cover" : slug + "-cover"}.svg`
+    : `${slug}.webp`;
 
   return {
-    image,
+    image: `${mediaRoot}/images/${file}`,
     video: `${mediaRoot}/videos/${slug}.mp4`,
     pdf: `${mediaRoot}/pdf/${slug}.pdf`,
     alt: `${title} preview media`,
@@ -60,6 +61,7 @@ function item(slug: string, title: string, kind: WorkKind, theme: "dark" | "ligh
 
 export const projects: Project[] = [
   item("stockforecast", "StockForecast", "project", "dark", "chart", "video"),
+  item("absensiyolo", "AbsensiYOLO", "project", "dark", "web"),
   item("llm-tft", "LLM-TFT", "project", "dark", "model", "video"),
   item("ai-sentiment", "AI Sentiment", "project", "dark", "pipeline"),
   item("dashboard", "Dashboard Infrastructure", "project", "light", "web", "video"),
