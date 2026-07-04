@@ -13,6 +13,9 @@ export function WorkPreviewModal({ item, locked, onClose }: {
   const shell = locked
     ? "fixed inset-0 z-[80] grid place-items-center bg-black/55 p-3 backdrop-blur-sm"
     : "pointer-events-none fixed inset-0 z-[80] grid place-items-center p-3";
+  const mediaLabel = item.slug === "stockforecast" && item.popup === "video"
+    ? "animated StockForecast walkthrough"
+    : item.popup === "video" ? item.media.video : item.media.image;
 
   return (
     <div className={shell}>
@@ -24,7 +27,7 @@ export function WorkPreviewModal({ item, locked, onClose }: {
         </div>
         <footer className="hidden items-center justify-between border-t border-white/10 px-4 py-3 text-[11px] font-black uppercase tracking-[0.1em] text-white/55 md:flex">
           <span>{item.popup} popup</span>
-          <span>{item.popup === "video" ? item.media.video : item.media.image}</span>
+          <span>{mediaLabel}</span>
         </footer>
       </article>
     </div>
