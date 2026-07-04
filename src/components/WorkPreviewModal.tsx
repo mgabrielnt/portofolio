@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import type { Project } from "@/data/projects";
+import { StockForecastVideo } from "./StockForecastVideo";
 
 export function WorkPreviewModal({ item, locked, onClose }: {
   item: Project | null;
@@ -37,6 +38,7 @@ function Close({ onClose }: { onClose: () => void }) {
 function MediaPreview({ item, locked }: { item: Project; locked: boolean }) {
   const [missing, setMissing] = useState(false);
   const src = item.popup === "video" ? item.media.video : item.media.image;
+  if (item.slug === "stockforecast" && item.popup === "video") return <StockForecastVideo />;
   if (missing) return <MissingMedia item={item} src={src} />;
 
   return (
