@@ -22,7 +22,7 @@ export function WorkPreviewModal({ item, locked, onClose }: {
       <article className="relative h-[155px] w-[280px] overflow-hidden rounded-md border border-line bg-card text-paper shadow-2xl md:h-auto md:w-[min(980px,72vw)] md:rounded-lg">
         {locked && <Close onClose={onClose} />}
         <div className="h-full md:aspect-video">
-          <MediaPreview key={`${item.slug}-${item.popup}-${locked}`} item={item} locked={locked} />
+          <MediaPreview key={`${item.slug}-${item.popup}-${item.media.video}`} item={item} locked={locked} />
         </div>
         <footer className="hidden items-center justify-between border-t border-white/10 px-4 py-3 text-[11px] font-black uppercase tracking-[0.1em] text-white/55 md:flex">
           <span>{item.title}</span>
@@ -40,13 +40,12 @@ function Close({ onClose }: { onClose: () => void }) {
 function MediaPreview({ item, locked }: { item: Project; locked: boolean }) {
   const [missing, setMissing] = useState(false);
   const src = item.popup === "video" ? item.media.video : item.media.image;
-  const showVideo = item.popup === "video" && locked;
 
   if (missing) return <MissingMedia item={item} src={src} />;
 
   return (
     <div className="relative size-full overflow-hidden bg-[#17172f]">
-      {showVideo ? (
+      {item.popup === "video" ? (
         <video
           key={item.media.video}
           src={item.media.video}
@@ -56,7 +55,7 @@ function MediaPreview({ item, locked }: { item: Project; locked: boolean }) {
           loop
           playsInline
           preload="metadata"
-          controls
+          controls={locked}
           onError={() => setMissing(true)}
           className="size-full object-cover"
         />
