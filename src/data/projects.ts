@@ -75,7 +75,7 @@ function item(
 export const projects: Project[] = [
   item("stockforecast", "StockForecast", "project", "dark", "web", "video"),
   item("absensiyolo", "AbsensiYOLO", "project", "dark", "web", "video"),
-  item("bki", "BKI Finance Dashboard", "project", "dark", "web"),
+  item("bki", "BKIFinanceDashboard", "project", "dark", "web", "video"),
   item("llm-tft", "LLM-TFT", "project", "dark", "model", "video"),
   item("ai-sentiment", "AI Sentiment", "project", "dark", "pipeline"),
   item("dashboard", "Dashboard Infrastructure", "project", "light", "web", "video"),
