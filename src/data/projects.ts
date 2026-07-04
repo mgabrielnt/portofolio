@@ -4,7 +4,7 @@ export type WorkKind = "project" | "award";
 export type WorkMedia = {
   image: string;
   video: string;
-  file: string;
+  pdf: string;
   alt: string;
 };
 
@@ -30,7 +30,7 @@ function media(slug: string, title: string): WorkMedia {
   return {
     image: `${mediaRoot}/images/${slug}.webp`,
     video: `${mediaRoot}/videos/${slug}.mp4`,
-    file: `${mediaRoot}/files/${slug}.pdf`,
+    pdf: `${mediaRoot}/docs/${slug}.pdf`,
     alt: `${title} preview media`,
   };
 }
