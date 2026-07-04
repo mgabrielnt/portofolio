@@ -1,61 +1,54 @@
-const steps = ["Market Data", "LLM Sentiment", "Model Score", "Forecast"];
-const bars = [42, 68, 50, 84, 58, 72, 46, 92, 64, 78];
-const cards = [
-  ["Dataset", "8.599 rows"],
-  ["News", "44.335 rows"],
-  ["DirAcc", "58.27%"],
-];
+const nav = ["Prediction Studio", "Model Performance", "Market Data Lab", "Sentiment Intelligence"];
+const bars = [44, 72, 56, 88, 66, 78, 52, 94, 63, 82];
+const heat = ["ASII.JK", "BBRI.JK", "BMRI.JK", "TLKM.JK"];
+const scenes = [
+  ["Opening Hero Dashboard", "StockForecast Pro", "AI-powered stock forecasting using TFT and LLM-TFT", "hero"],
+  ["Prediction Studio", "Run LLM-TFT inference", "Ticker ASII.JK · Encoder 15 days · Horizon 3 days · Cutoff 2026-01-14", "predict"],
+  ["Forecast Chart", "15-day encoder to H+3 prediction", "Actual price, TFT forecast, and LLM-TFT forecast are drawn from T-14 to H+3.", "forecast"],
+  ["Model Performance · Global", "Lower error with LLM-TFT", "RMSE, MAE, and MAPE comparison between TFT and LLM-TFT.", "global"],
+  ["Model Performance · Horizon", "Lower RMSE across H+1, H+2, H+3", "The orange LLM-TFT line stays below the blue TFT benchmark.", "horizon"],
+  ["Model Performance · Emiten", "Evaluation per stock ticker", "RMSE heatmap for ASII.JK, BBRI.JK, BMRI.JK, and TLKM.JK.", "emiten"],
+  ["Attention Intelligence", "Temporal attention reveals model focus", "Model focuses on recent market behavior across the 15-day encoder window.", "attention"],
+  ["Market Data Lab", "Research-grade price data", "2.149 price rows · 1 issuer · Rp 7.125 latest close · 43.646.159 average volume.", "market"],
+  ["Technical Indicator", "log_return_1d and correlation heatmap", "Technical features help the model understand volatility, momentum, and price behavior.", "technical"],
+  ["Sentiment Intelligence", "News becomes daily model features", "1.835 clean news · 1.835 labeled articles · 2.337 sentiment days.", "sentiment"],
+  ["Final Integration", "From data and news to multi-horizon forecast", "Prediction Studio, Performance Evaluation, Market Data, and Sentiment Intelligence work together.", "integrate"],
+  ["Closing Shot", "StockForecast Pro", "From market data to intelligent multi-horizon prediction.", "closing"],
+] as const;
 
 export function StockForecastVideo() {
-  return (
-    <div className="sf-video relative size-full overflow-hidden bg-[#060a16] text-white">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_10%,rgba(91,198,255,.28),transparent_32%),radial-gradient(circle_at_84%_12%,rgba(255,122,45,.22),transparent_34%),linear-gradient(135deg,#07101f,#14172a_52%,#241923)]" />
-      <div className="absolute inset-0 opacity-[.16] [background-image:linear-gradient(rgba(255,255,255,.22)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.22)_1px,transparent_1px)] [background-size:42px_42px]" />
-      <div className="absolute left-4 top-4 h-1 w-[calc(100%-2rem)] overflow-hidden rounded-full bg-white/15 md:left-8 md:top-8 md:w-[calc(100%-4rem)]">
-        <div className="sf-progress h-full w-0 rounded-full bg-gradient-to-r from-sky-300 via-indigo-400 to-orange-400" />
-      </div>
-
-      <aside className="absolute bottom-5 left-5 top-10 hidden w-48 rounded-3xl border border-white/10 bg-black/25 p-5 backdrop-blur md:block">
-        <div className="mb-8 flex items-center gap-3">
-          <div className="grid size-8 place-items-center rounded-md bg-white text-sky-400">↗</div>
-          <b>StockForecast Pro</b>
-        </div>
-        <p className="mb-5 text-[11px] font-black uppercase tracking-[.2em] text-white/45">Navigation</p>
-        {steps.map((step, index) => <div key={step} className="mb-4 flex items-center gap-3 text-xs font-bold"><span className={`sf-dot sf-dot-${index} size-3 rounded-full bg-white/20`} />{step}</div>)}
-      </aside>
-
-      <main className="absolute inset-4 pt-8 md:left-64 md:inset-y-8 md:right-8 md:pt-0">
-        <header className="rounded-3xl border border-white/10 bg-white/[.05] p-5 shadow-2xl backdrop-blur md:p-8">
-          <p className="text-[10px] font-black uppercase tracking-[.35em] text-sky-300">StockForecast Pro</p>
-          <h2 className="mt-2 text-3xl font-black tracking-[-.05em] md:text-5xl">LLM-TFT Forecasting Dashboard</h2>
-          <p className="mt-2 text-sm font-bold text-white/55 md:text-base">Technical indicators · LLM news sentiment · multi-horizon prediction</p>
-        </header>
-
-        <section className="sf-scene sf-intro grid place-items-center">
-          <div className="grid w-full gap-4 md:grid-cols-3">{cards.map(([a, b]) => <div key={a} className="rounded-2xl border border-white/10 bg-[#151d2d]/90 p-5"><p className="text-sm text-sky-100/70">{a}</p><b className="text-3xl">{b}</b></div>)}</div>
-        </section>
-
-        <section className="sf-scene sf-market rounded-3xl border border-white/10 bg-[#0d1425]/90 p-5">
-          <b>Market Data Lab</b><p className="text-sm text-white/50">Price action becomes technical features.</p>
-          <svg className="mt-7 h-44 w-full" viewBox="0 0 820 210"><path className="sf-line-white" d="M10 160 L80 138 L145 152 L210 110 L280 96 L350 72 L420 85 L500 42 L575 68 L650 36 L740 58"/><path className="sf-line-blue" d="M10 160 L80 138 L145 152 L210 110 L280 96 L350 72 L420 85 L500 42 L575 68 L650 36 L740 58"/></svg>
-        </section>
-
-        <section className="sf-scene sf-sentiment rounded-3xl border border-white/10 bg-[#0d1425]/90 p-5">
-          <b>Sentiment Intelligence</b><p className="text-sm text-white/50">RSS news → clean text → GPT label → daily sentiment.</p>
-          <div className="mt-8 flex h-40 items-end gap-3">{bars.map((bar, i) => <span key={i} style={{ height: `${bar}%` }} className="sf-bar w-full rounded-t-lg bg-sky-300" />)}</div>
-        </section>
-
-        <section className="sf-scene sf-score rounded-3xl border border-white/10 bg-[#0d1425]/90 p-5">
-          <b>Model Performance</b><p className="text-sm text-white/50">LLM-TFT lowers error and improves direction.</p>
-          <div className="mt-8 grid grid-cols-3 gap-5">{[["RMSE", "132.6", "125.3"], ["MAE", "96.2", "91.0"], ["MAPE", "2.26", "2.13"]].map(([m, a, b]) => <div key={m} className="rounded-2xl bg-white/5 p-4"><p className="text-xs text-white/50">{m}</p><div className="mt-4 flex h-32 items-end gap-4"><span className="w-10 rounded-t-md bg-sky-300" style={{ height: `${Number(a) > 10 ? 90 : 80}%` }} /><span className="w-10 rounded-t-md bg-orange-400" style={{ height: `${Number(b) > 10 ? 76 : 68}%` }} /></div></div>)}</div>
-        </section>
-
-        <section className="sf-scene sf-forecast rounded-3xl border border-white/10 bg-[#0d1425]/90 p-5">
-          <b>Prediction Studio</b><p className="text-sm text-white/50">Encoder 15 hari menghasilkan H+1, H+2, H+3.</p>
-          <div className="mt-10 grid gap-4 md:grid-cols-3">{[["H+1", "Rp 7.139", "+0.19%"], ["H+2", "Rp 7.142", "+0.24%"], ["H+3", "Rp 7.122", "-0.04%"]].map(([h, v, p]) => <div key={h} className="sf-pop rounded-2xl border border-white/10 bg-white/5 p-5"><p className="text-sm text-sky-100/70">LLM-TFT {h}</p><b className="text-3xl">{v}</b><span className="ml-3 rounded-full bg-emerald-400/15 px-2 py-1 text-xs font-black text-emerald-300">{p}</span></div>)}</div>
-        </section>
-      </main>
-      <style>{`.sf-progress{animation:progress 14s linear infinite}.sf-scene{position:absolute;left:0;right:0;top:190px;bottom:0;opacity:0;transform:translateY(22px) scale(.98);animation:scene 14s ease-in-out infinite}.sf-intro{animation-delay:0s}.sf-market{animation-delay:2.8s}.sf-sentiment{animation-delay:5.6s}.sf-score{animation-delay:8.4s}.sf-forecast{animation-delay:11.2s}.sf-line-white,.sf-line-blue{fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:900;stroke-dashoffset:900;animation:draw 2.8s ease-in-out infinite}.sf-line-white{stroke:#eef2fb;stroke-width:10;opacity:.45}.sf-line-blue{stroke:#61c9ff;stroke-width:4}.sf-bar{animation:bar 2.8s ease-in-out infinite}.sf-dot{animation:dot 14s steps(1,end) infinite}.sf-dot-1{animation-delay:2.8s}.sf-dot-2{animation-delay:5.6s}.sf-dot-3{animation-delay:8.4s}.sf-pop{animation:pop 2.8s ease-in-out infinite}@keyframes progress{to{width:100%}}@keyframes scene{0%,17%{opacity:1;transform:none}22%,100%{opacity:0;transform:translateY(-18px) scale(.98)}}@keyframes draw{45%,100%{stroke-dashoffset:0}}@keyframes bar{0%{transform:scaleY(.1)}45%,100%{transform:scaleY(1)}}@keyframes dot{0%,20%{background:#ff5b55}21%,100%{background:rgba(255,255,255,.2)}}@keyframes pop{0%{transform:translateY(16px);opacity:.35}35%,100%{transform:none;opacity:1}}@media(max-width:767px){.sf-video main{inset:14px!important;padding-top:0!important}.sf-video header{padding:12px!important;border-radius:18px!important}.sf-video h2{font-size:18px!important;line-height:1!important}.sf-video p{font-size:8px!important}.sf-video b{font-size:12px!important}.sf-scene{top:82px!important}.sf-intro>div{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}.sf-intro div div{padding:8px!important}.sf-video svg{height:54px!important;margin-top:8px!important}.sf-sentiment div{height:48px!important;gap:4px!important;margin-top:10px!important}.sf-score .grid,.sf-forecast .grid{gap:6px!important}.sf-score .grid>div,.sf-forecast .grid>div{padding:8px!important}.sf-pop span{display:none}}`}</style>
-    </div>
-  );
+  return <div className="sfv relative size-full overflow-hidden bg-[#050914] text-white">
+    <div className="absolute inset-0 bg-[radial-gradient(circle_at_16%_12%,rgba(88,195,255,.26),transparent_32%),radial-gradient(circle_at_88%_18%,rgba(255,109,43,.2),transparent_32%),linear-gradient(135deg,#060b18,#11182b_46%,#211628)]" />
+    <div className="absolute inset-0 opacity-[.13] [background-image:linear-gradient(rgba(255,255,255,.2)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.2)_1px,transparent_1px)] [background-size:44px_44px]" />
+    <div className="absolute left-6 top-6 z-20 h-1 w-[calc(100%-3rem)] overflow-hidden rounded-full bg-white/15"><div className="sfv-progress h-full w-0 bg-gradient-to-r from-sky-300 via-violet-400 to-orange-400" /></div>
+    <aside className="absolute bottom-8 left-8 top-12 z-10 hidden w-56 rounded-[28px] border border-white/10 bg-black/25 p-5 shadow-2xl backdrop-blur md:block">
+      <div className="mb-8 flex items-center gap-3"><div className="grid size-9 place-items-center rounded-lg bg-white text-sky-400 shadow-[0_0_28px_rgba(96,199,255,.28)]">↗</div><b className="text-sm">StockForecast Pro</b></div>
+      <p className="mb-4 text-[10px] font-black uppercase tracking-[.24em] text-white/40">Navigation</p>
+      {nav.map((item, i) => <div key={item} className="mb-4 flex items-center gap-3 text-xs font-bold text-white/75"><span className={`sfv-dot dot-${i} size-3 rounded-full bg-white/20`} />{item}</div>)}
+    </aside>
+    <main className="absolute inset-4 top-10 md:inset-y-12 md:left-72 md:right-8">
+      {scenes.map((scene, i) => <section key={scene[0]} style={{ animationDelay: `${i * 6}s` }} className="sfv-scene absolute inset-0 rounded-[30px] border border-white/10 bg-white/[.045] p-5 shadow-2xl backdrop-blur md:p-8">
+        <p className="text-[10px] font-black uppercase tracking-[.26em] text-sky-300">{scene[0]}</p><h2 className="mt-2 text-2xl font-black tracking-[-.05em] md:text-5xl">{scene[1]}</h2><p className="mt-2 max-w-3xl text-xs font-bold text-white/55 md:text-base">{scene[2]}</p><SceneArt type={scene[3]} />
+      </section>)}
+    </main>
+    <div className="sfv-cursor absolute z-30 size-5 rounded-full border border-white bg-white/85 shadow-[0_0_26px_rgba(125,213,255,.8)]" />
+    <style>{css}</style>
+  </div>;
 }
+
+function SceneArt({ type }: { type: string }) {
+  if (type === "hero" || type === "closing") return <div className="mt-10 grid gap-4 md:grid-cols-4">{nav.map(x => <div key={x} className="rounded-2xl border border-white/10 bg-black/25 p-5"><span className="mb-8 block size-3 rounded-full bg-[#ff5b55] shadow-[0_0_22px_rgba(255,91,85,.65)]"/><b>{x}</b></div>)}</div>;
+  if (type === "predict") return <><div className="mt-8 grid gap-3 md:grid-cols-4">{["ASII.JK", "15 days", "3 days", "2026-01-14"].map((x, i) => <Card key={x} k={["Ticker", "Encoder", "Horizon", "Cutoff"][i]} v={x}/>)}</div><button className="sfv-pulse mt-5 rounded-2xl bg-[#ff4f55] px-6 py-4 text-sm font-black">Jalankan prediksi checkpoint</button><Results /></>;
+  if (type === "forecast" || type === "market" || type === "horizon" || type === "attention") return <Chart mode={type} />;
+  if (type === "global") return <div className="mt-8 grid grid-cols-3 gap-4">{[["RMSE",132.6,125.3],["MAE",96.2,91.0],["MAPE",2.26,2.13]].map(([m,a,b]) => <div key={m} className="rounded-2xl bg-black/20 p-4"><b>{m}</b><div className="mt-5 flex h-44 items-end gap-5"><i className="sfv-rise w-12 rounded-t-lg bg-sky-300" style={{height:`${Number(a)>10?92:78}%`}}/><i className="sfv-rise w-12 rounded-t-lg bg-orange-400" style={{height:`${Number(b)>10?76:64}%`}}/></div><p className="text-xs text-white/45">LLM-TFT achieves lower error.</p></div>)}</div>;
+  if (type === "emiten" || type === "technical") return <div className="mt-8 grid gap-3">{heat.map((r,i)=><div key={r} className="grid grid-cols-[90px_1fr_1fr] gap-3 text-xs font-bold"><span>{type==="technical"?["close","volume","rsi_14","log_return_1d"][i]:r}</span><Cell/><Cell hot={i%2===0}/></div>)}</div>;
+  if (type === "sentiment") return <div className="mt-8 grid gap-5 md:grid-cols-[1fr_260px]"><div className="rounded-2xl bg-black/20 p-5"><b>Daily news volume</b><div className="mt-6 flex h-44 items-end gap-2">{bars.map((b,i)=><i key={i} className="sfv-rise w-full rounded-t bg-sky-300/80" style={{height:`${b}%`}}/>)}</div></div><div className="grid place-items-center rounded-2xl bg-black/20 p-5"><div className="sfv-donut size-40 rounded-full"/><p className="mt-4 text-xs font-black uppercase tracking-[.2em] text-white/55">Neutral · Negative · Positive</p></div></div>;
+  return <div className="mt-10 grid gap-4 md:grid-cols-4">{nav.map(x=><div key={x} className="sfv-pop rounded-2xl border border-white/10 bg-black/25 p-5"><b>{x}</b><p className="mt-3 text-xs text-white/45">Connected workflow</p></div>)}</div>;
+}
+
+function Card({ k, v }: { k: string; v: string }) { return <div className="sfv-pop rounded-2xl border border-white/10 bg-black/25 p-5"><p className="text-xs text-sky-100/60">{k}</p><b className="text-2xl">{v}</b></div>; }
+function Results() { return <div className="mt-5 grid gap-3 md:grid-cols-3">{[["H+1","Rp 7.139"],["H+2","Rp 7.142"],["H+3","Rp 7.122"]].map(([h,v])=><Card key={h} k={`LLM-TFT ${h}`} v={v}/>)}</div>; }
+function Cell({ hot=false }: { hot?: boolean }) { return <span className={`sfv-cell h-11 rounded-xl ${hot?"bg-orange-400/70":"bg-sky-300/55"}`} />; }
+function Chart({ mode }: { mode: string }) { return <div className="mt-8 rounded-2xl bg-black/20 p-5"><b>{mode === "attention" ? "Temporal attention pattern" : mode === "horizon" ? "RMSE per horizon" : "Market price action"}</b><svg className="mt-5 h-56 w-full" viewBox="0 0 900 240"><line x1="610" y1="22" x2="610" y2="220" stroke="white" strokeDasharray="8 10" opacity=".35"/><path className="sfv-line white" d="M20 180 L95 156 L170 164 L245 118 L320 98 L395 72 L470 88 L545 42 L610 68"/><path className="sfv-line blue" d="M610 68 L690 76 L770 90 L850 106"/><path className="sfv-line orange" d="M610 68 L690 62 L770 58 L850 66"/></svg><p className="text-xs text-white/45">{mode === "forecast" ? "Vertical cutoff at T0, then H+1, H+2, and H+3 predictions." : mode === "attention" ? "Model focuses on recent encoder steps from -4 to 0." : "Smooth chart drawing with premium fintech highlights."}</p></div>; }
+
+const css = `.sfv-progress{animation:sfvProgress 72s linear infinite}.sfv-scene{opacity:0;transform:translateY(22px) scale(.985);animation:sfvScene 72s ease-in-out infinite}.sfv-line{fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:900;stroke-dashoffset:900;animation:sfvDraw 6s ease-in-out infinite}.sfv-line.white{stroke:#f4f7ff;stroke-width:9}.sfv-line.blue{stroke:#55c7ff;stroke-width:6}.sfv-line.orange{stroke:#ff8a34;stroke-width:7}.sfv-rise{display:block;animation:sfvRise 6s ease-in-out infinite;transform-origin:bottom}.sfv-pop{animation:sfvPop 6s ease-in-out infinite}.sfv-pulse{box-shadow:0 0 0 0 rgba(255,79,85,.55);animation:sfvPulse 1.6s ease-in-out infinite}.sfv-cell{animation:sfvHeat 2.6s ease-in-out infinite}.sfv-donut{background:conic-gradient(#92a1b8 0 62%,#ff6b55 62% 78%,#6ee78f 78%);animation:sfvSpin 6s ease-in-out infinite}.sfv-cursor{left:0;top:0;animation:sfvCursor 72s ease-in-out infinite}.sfv-dot{animation:sfvDot 24s steps(1,end) infinite}.dot-1{animation-delay:6s}.dot-2{animation-delay:12s}.dot-3{animation-delay:18s}@keyframes sfvProgress{to{width:100%}}@keyframes sfvScene{0%,7.4%{opacity:1;transform:none}8.5%,100%{opacity:0;transform:translateY(-18px) scale(.985)}}@keyframes sfvDraw{45%,100%{stroke-dashoffset:0}}@keyframes sfvRise{0%{transform:scaleY(.05);opacity:.45}45%,100%{transform:scaleY(1);opacity:1}}@keyframes sfvPop{0%{transform:translateY(14px);opacity:.35}35%,100%{transform:none;opacity:1}}@keyframes sfvPulse{70%{box-shadow:0 0 0 14px rgba(255,79,85,0)}}@keyframes sfvHeat{50%{box-shadow:0 0 24px rgba(255,255,255,.22)}}@keyframes sfvSpin{0%{transform:rotate(-70deg);filter:brightness(.8)}55%,100%{transform:rotate(0);filter:brightness(1.16)}}@keyframes sfvDot{0%,25%{background:#ff5b55;box-shadow:0 0 18px rgba(255,91,85,.8)}26%,100%{background:rgba(255,255,255,.2);box-shadow:none}}@keyframes sfvCursor{0%{transform:translate(64px,94px)}8%{transform:translate(330px,260px)}16%{transform:translate(650px,520px)}25%{transform:translate(460px,310px)}34%{transform:translate(760px,390px)}43%{transform:translate(520px,530px)}52%{transform:translate(780px,470px)}61%{transform:translate(360px,370px)}70%{transform:translate(730px,520px)}79%{transform:translate(640px,360px)}88%{transform:translate(440px,260px)}100%{transform:translate(64px,94px)}}@media(max-width:767px){.sfv main{inset:12px!important;top:28px!important}.sfv-scene{padding:14px!important;border-radius:18px!important}.sfv h2{font-size:20px!important}.sfv p{font-size:9px!important}.sfv b{font-size:13px}.sfv svg{height:90px!important}.sfv .grid{gap:7px!important}.sfv .rounded-2xl{padding:9px!important}.sfv-cursor{display:none}}`;
