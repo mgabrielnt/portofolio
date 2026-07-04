@@ -1,6 +1,13 @@
 export type Preview = "chart" | "model" | "pipeline" | "web" | "award";
 export type WorkKind = "project" | "award";
 
+export type WorkMedia = {
+  image: string;
+  video: string;
+  file: string;
+  alt: string;
+};
+
 export type Project = {
   slug: string;
   title: string;
@@ -12,10 +19,21 @@ export type Project = {
   stack: string[];
   summary: string;
   metrics: string[];
+  media: WorkMedia;
 };
 
 const stack = ["Next.js", "Python", "AI/Data"];
 const metrics = ["Research-ready", "Deploy-ready", "Portfolio-ready"];
+const mediaRoot = "/media/work";
+
+function media(slug: string, title: string): WorkMedia {
+  return {
+    image: `${mediaRoot}/images/${slug}.webp`,
+    video: `${mediaRoot}/videos/${slug}.mp4`,
+    file: `${mediaRoot}/files/${slug}.pdf`,
+    alt: `${title} preview media`,
+  };
+}
 
 function item(slug: string, title: string, kind: WorkKind, theme: "dark" | "light", preview: Preview): Project {
   return {
@@ -29,6 +47,7 @@ function item(slug: string, title: string, kind: WorkKind, theme: "dark" | "ligh
     stack,
     summary: `${title} case study for AI, data, dashboard, and web systems.`,
     metrics,
+    media: media(slug, title),
   };
 }
 
