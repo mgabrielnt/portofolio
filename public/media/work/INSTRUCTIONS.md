@@ -4,7 +4,7 @@ Use the same name as the slug in src/data/projects.ts.
 
 Images go in public/media/work/images.
 Videos go in public/media/work/videos.
-PDF documents go in public/media/work/docs.
+PDF media goes in public/media/work/pdf.
 
 Example names:
 stockforecast.webp
