@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import type { Project } from "@/data/projects";
-import { StockForecastVideo } from "./StockForecastVideo";
 
 export function WorkPreviewModal({ item, locked, onClose }: {
   item: Project | null;
@@ -10,12 +9,12 @@ export function WorkPreviewModal({ item, locked, onClose }: {
   onClose: () => void;
 }) {
   if (!item) return null;
+
   const shell = locked
     ? "fixed inset-0 z-[80] grid place-items-center bg-black/55 p-3 backdrop-blur-sm"
     : "pointer-events-none fixed inset-0 z-[80] grid place-items-center p-3";
-  const mediaLabel = item.slug === "stockforecast" && item.popup === "video"
-    ? "animated StockForecast walkthrough"
-    : item.popup === "video" ? item.media.video : item.media.image;
+
+  const mediaLabel = item.popup === "video" ? item.media.video : item.media.image;
 
   return (
     <div className={shell}>
@@ -23,7 +22,7 @@ export function WorkPreviewModal({ item, locked, onClose }: {
       <article className="relative h-[155px] w-[280px] overflow-hidden rounded-md border border-line bg-card text-paper shadow-2xl md:h-auto md:w-[min(980px,72vw)] md:rounded-lg">
         {locked && <Close onClose={onClose} />}
         <div className="h-full md:aspect-video">
-          <MediaPreview key={`${item.slug}-${item.popup}`} item={item} locked={locked} />
+          <MediaPreview key={`${item.slug}-${mediaLabel}`} item={item} locked={locked} />
         </div>
         <footer className="hidden items-center justify-between border-t border-white/10 px-4 py-3 text-[11px] font-black uppercase tracking-[0.1em] text-white/55 md:flex">
           <span>{item.popup} popup</span>
@@ -41,15 +40,31 @@ function Close({ onClose }: { onClose: () => void }) {
 function MediaPreview({ item, locked }: { item: Project; locked: boolean }) {
   const [missing, setMissing] = useState(false);
   const src = item.popup === "video" ? item.media.video : item.media.image;
-  if (item.slug === "stockforecast" && item.popup === "video") return <StockForecastVideo />;
+
   if (missing) return <MissingMedia item={item} src={src} />;
 
   return (
     <div className="relative size-full overflow-hidden bg-[#17172f]">
       {item.popup === "video" ? (
-        <video src={item.media.video} poster={item.media.image} autoPlay muted loop playsInline controls={locked} onError={() => setMissing(true)} className="size-full object-cover" />
+        <video
+          key={item.media.video}
+          src={item.media.video}
+          poster={item.media.image}
+          autoPlay
+          muted
+          loop
+          playsInline
+          controls={locked}
+          onError={() => setMissing(true)}
+          className="size-full object-cover"
+        />
       ) : (
-        <img src={item.media.image} alt={item.media.alt} onError={() => setMissing(true)} className="size-full object-cover" />
+        <img
+          src={item.media.image}
+          alt={item.media.alt}
+          onError={() => setMissing(true)}
+          className="size-full object-cover"
+        />
       )}
       <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/45 via-transparent to-black/15" />
       <p className="absolute left-3 top-3 max-w-[72%] text-[9px] font-black uppercase tracking-[0.16em] text-white/65 md:left-8 md:top-8 md:text-[11px] md:tracking-[0.18em]">
