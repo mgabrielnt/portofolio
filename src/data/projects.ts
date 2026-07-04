@@ -24,15 +24,19 @@ export type Project = {
   media: WorkMedia;
 };
 
+type CoverFile = `${string}.${"svg" | "webp" | "png"}`;
+
 const stack = ["Next.js", "Python", "AI/Data"];
 const metrics = ["Research-ready", "Deploy-ready", "Portfolio-ready"];
 const mediaRoot = "/media/work";
+const coverBySlug: Record<string, CoverFile> = {
+  stockforecast: "stockforecast-pro-cover.svg",
+  absensiyolo: "absensiyolo-cover.svg",
+  bki: "bki.png",
+};
 
 function media(slug: string, title: string): WorkMedia {
-  const svgCovers = ["stockforecast", "absensiyolo"];
-  const file = svgCovers.includes(slug)
-    ? `${slug === "stockforecast" ? "stockforecast-pro-cover" : slug + "-cover"}.svg`
-    : `${slug}.webp`;
+  const file = coverBySlug[slug] ?? `${slug}.webp`;
 
   return {
     image: `${mediaRoot}/images/${file}`,
@@ -42,7 +46,14 @@ function media(slug: string, title: string): WorkMedia {
   };
 }
 
-function item(slug: string, title: string, kind: WorkKind, theme: "dark" | "light", preview: Preview, popup: PopupMedia = "image"): Project {
+function item(
+  slug: string,
+  title: string,
+  kind: WorkKind,
+  theme: "dark" | "light",
+  preview: Preview,
+  popup: PopupMedia = "image"
+): Project {
   return {
     slug,
     title,
@@ -51,7 +62,9 @@ function item(slug: string, title: string, kind: WorkKind, theme: "dark" | "ligh
     preview,
     popup,
     href: `/projects/${slug}`,
-    kicker: kind === "project" ? "selected work / interface preview" : "recognition / award preview",
+    kicker: kind === "project"
+      ? "selected work / interface preview"
+      : "recognition / award preview",
     stack,
     summary: `${title} case study for AI, data, dashboard, and web systems.`,
     metrics,
@@ -62,6 +75,7 @@ function item(slug: string, title: string, kind: WorkKind, theme: "dark" | "ligh
 export const projects: Project[] = [
   item("stockforecast", "StockForecast", "project", "dark", "web", "video"),
   item("absensiyolo", "AbsensiYOLO", "project", "dark", "web", "video"),
+  item("bki", "BKI Finance Dashboard", "project", "dark", "web"),
   item("llm-tft", "LLM-TFT", "project", "dark", "model", "video"),
   item("ai-sentiment", "AI Sentiment", "project", "dark", "pipeline"),
   item("dashboard", "Dashboard Infrastructure", "project", "light", "web", "video"),
