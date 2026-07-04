@@ -60,7 +60,7 @@ function item(slug: string, title: string, kind: WorkKind, theme: "dark" | "ligh
 }
 
 export const projects: Project[] = [
-  item("stockforecast", "StockForecast", "project", "dark", "chart", "video"),
+  item("stockforecast", "StockForecast", "project", "dark", "web", "video"),
   item("absensiyolo", "AbsensiYOLO", "project", "dark", "web", "video"),
   item("llm-tft", "LLM-TFT", "project", "dark", "model", "video"),
   item("ai-sentiment", "AI Sentiment", "project", "dark", "pipeline"),
