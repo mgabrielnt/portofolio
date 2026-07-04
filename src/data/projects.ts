@@ -1,5 +1,6 @@
 export type Preview = "chart" | "model" | "pipeline" | "web" | "award";
 export type WorkKind = "project" | "award";
+export type PopupMedia = "image" | "video";
 
 export type WorkMedia = {
   image: string;
@@ -14,6 +15,7 @@ export type Project = {
   kicker: string;
   theme: "dark" | "light";
   preview: Preview;
+  popup: PopupMedia;
   kind: WorkKind;
   href: string;
   stack: string[];
@@ -35,13 +37,14 @@ function media(slug: string, title: string): WorkMedia {
   };
 }
 
-function item(slug: string, title: string, kind: WorkKind, theme: "dark" | "light", preview: Preview): Project {
+function item(slug: string, title: string, kind: WorkKind, theme: "dark" | "light", preview: Preview, popup: PopupMedia = "image"): Project {
   return {
     slug,
     title,
     kind,
     theme,
     preview,
+    popup,
     href: `/projects/${slug}`,
     kicker: kind === "project" ? "selected work / interface preview" : "recognition / award preview",
     stack,
@@ -52,11 +55,11 @@ function item(slug: string, title: string, kind: WorkKind, theme: "dark" | "ligh
 }
 
 export const projects: Project[] = [
-  item("stockforecast", "StockForecast", "project", "light", "chart"),
-  item("llm-tft", "LLM-TFT", "project", "dark", "model"),
+  item("stockforecast", "StockForecast", "project", "light", "chart", "video"),
+  item("llm-tft", "LLM-TFT", "project", "dark", "model", "video"),
   item("ai-sentiment", "AI Sentiment", "project", "dark", "pipeline"),
-  item("dashboard", "Dashboard Infrastructure", "project", "light", "web"),
-  item("portfolio-system", "Portfolio System", "project", "dark", "web"),
+  item("dashboard", "Dashboard Infrastructure", "project", "light", "web", "video"),
+  item("portfolio-system", "Portfolio System", "project", "dark", "web", "video"),
   item("market-pipeline", "Market Pipeline", "project", "light", "pipeline"),
   item("xai-reports", "XAI Reports", "project", "dark", "chart"),
   item("resume-matcher", "Resume Matcher", "project", "light", "model"),
