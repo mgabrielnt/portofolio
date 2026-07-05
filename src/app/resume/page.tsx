@@ -52,10 +52,6 @@ export default function ResumePage() {
                   </div>
                 ))}
               </div>
-
-              <div className="border border-dashed border-line p-5 text-sm font-bold leading-tight text-muted">
-                <span className="text-accent">●</span> This page is separated from the PDF file route so desktop will open the designed viewer first.
-              </div>
             </aside>
 
             <section className="overflow-hidden border border-line bg-paper p-2 shadow-2xl shadow-black/40">
