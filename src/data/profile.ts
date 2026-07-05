@@ -2,53 +2,59 @@ export const profile = {
   initials: "GT",
   name: ["Mangelek Gabriel", "Nicholas Tambun"],
   birthYear: "2002",
-  location: "Indonesia: JKT [WIB].",
-  intro: "Built for Data, AI & Web.",
-  roles: ["Data Science / AI Engineer", "Full Stack Developer"],
+  location: "Indonesia: JKT [WIB]",
+  intro: "Data, AI & Web Builder.",
+  roles: ["Data Engineer", "Machine Learning Engineer", "Full-Stack Developer"],
   headline: [
     "I build intelligent data systems,",
     "AI-powered dashboards, and",
     "launch-ready web products.",
   ],
   availability: "Available August 2026",
-  status: "Open for Graduate Program / AI / Data / Full Stack",
+  status: "Open for Data / AI / Web Roles",
 };
 
 export const metrics = [
-  "8.599 Stock Rows Processed.",
-  "44.335 News Rows Collected.",
-  "LLM-TFT Forecasting Thesis.",
+  "Stock Forecasting Thesis.",
+  "Financial Dashboard System.",
+  "Healthcare Monitoring Web App.",
 ];
 
 export const recognitions = [
-  "StockForecast LLM-TFT Thesis",
-  "Data Science 101 / Methodology",
-  "ACA Cloud Computing / Oracle DB",
+  "StockForecast LLM-TFT",
+  "ICU Monitoring SIMRS",
+  "BKI Finance Dashboard",
+  "AbsensiYOLO",
+  "Laboratory Assistant",
+  "Cloud & Database Certifications",
 ];
 
 export const highlights = [
-  "LLM-based Sentiment Pipeline",
-  "Temporal Fusion Transformer Forecasting",
-  "Dashboard Deployment",
-  "Research-ready AI Portfolio",
+  "Improved Forecasting MAPE to 2.13%",
+  "Achieved R² 0.988 Model Performance",
+  "Built 12-stage PySpark ETL Pipeline",
+  "Integrated 26 Healthcare API Services",
+  "Developed 16-class Face Recognition System",
 ];
 
 export const ecosystem = [
-  "Universitas Diponegoro",
-  "PT Mandiri Sekuritas",
-  "Cognitive Class",
-  "Alibaba Cloud",
-  "Oracle",
-  "Yahoo Finance",
-  "Google News RSS",
-  "Streamlit",
-  "Next.js",
-  "Vercel",
+  "Data Engineering",
+  "Machine Learning",
+  "AI Forecasting",
+  "Computer Vision",
+  "Dashboard Development",
+  "Frontend Engineering",
+  "API Integration",
+  "Database Design",
+  "Cloud Fundamentals",
+  "Research Implementation",
+  "Production-ready Web Systems",
 ];
 
 export const links = [
   { label: "LinkedIn", href: "https://www.linkedin.com/" },
-  { label: "Email", href: "mailto:your.email@example.com" },
+  { label: "Email", href: "mailto:nicholas.tbn26@gmail.com" },
   { label: "GitHub", href: "https://github.com/mgabrielnt" },
-  { label: "WhatsApp", href: "https://wa.me/6200000000000" },
+  { label: "Portfolio", href: "/" },
+  { label: "WhatsApp", href: "https://wa.me/6281370044147" },
 ];
