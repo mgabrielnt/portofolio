@@ -30,11 +30,11 @@ export const recognitions = [
 ];
 
 export const highlights = [
-  "Improved Forecasting MAPE to 2.13%",
-  "Achieved R² 0.988 Model Performance",
-  "Built 12-stage PySpark ETL Pipeline",
-  "Integrated 26 Healthcare API Services",
-  "Developed 16-class Face Recognition System",
+  "MAPE 2.13%",
+  "R² 0.988",
+  "12-stage ETL",
+  "26 API Services",
+  "16-class Recognition",
 ];
 
 export const ecosystem = [
