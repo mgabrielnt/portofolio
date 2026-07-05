@@ -2,7 +2,7 @@ export const profile = {
   initials: "GT",
   name: ["Mangelek Gabriel", "Nicholas Tambun"],
   birthYear: "2002",
-  location: "Indonesia: JKT [WIB]",
+  location: "Indonesia: JKT",
   intro: "Data, AI & Web Builder.",
   roles: ["Data Engineer", "Machine Learning Engineer", "Full-Stack Developer"],
   headline: [
@@ -56,5 +56,5 @@ export const links = [
   { label: "Email", href: "mailto:nicholas.tbn26@gmail.com" },
   { label: "GitHub", href: "https://github.com/mgabrielnt" },
   { label: "Portfolio", href: "/" },
-  { label: "WhatsApp", href: "https://wa.me/6281370044147" },
+  { label: "WhatsApp", href: "https://wa.me/6281370044137" },
 ];
