@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import { ecosystem, highlights, links, metrics, profile, recognitions } from "@/data/profile";
 import { projects } from "@/data/projects";
@@ -12,7 +13,15 @@ export function MobileHome() {
     <main className="min-h-screen overflow-x-hidden bg-ink p-3 pb-8 font-mono text-paper">
       <header className="flex items-start justify-between border-b border-line pb-3 text-[12px] font-black uppercase leading-tight">
         <div className="flex gap-2">
-          <div className="grid size-8 place-items-center bg-white/10">GT</div>
+          <div className="grid size-8 place-items-center overflow-hidden bg-white/10">
+            <Image
+              src="/media/work/images/saya.PNG"
+              alt="Mangelek Gabriel Nicholas Tambun"
+              width={64}
+              height={64}
+              className="h-full w-full object-cover"
+            />
+          </div>
           <div><p>{profile.name.join(" ")}</p><p className="normal-case">AI / Data / Web</p></div>
         </div>
         <button type="button" onClick={() => setOpen(!open)} className="text-right">

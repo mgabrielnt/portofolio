@@ -1,5 +1,6 @@
 import { metrics, profile } from "@/data/profile";
 import { DotLabel } from "./DotLabel";
+import Image from "next/image";
 import { Tag } from "./Tag";
 
 export function IntroBlock() {
@@ -7,8 +8,14 @@ export function IntroBlock() {
     <article>
       <DotLabel>Profile</DotLabel>
       <div className="flex items-start gap-3">
-        <div className="grid size-12 place-items-center border border-line bg-white/5 text-sm font-bold">
-          {profile.initials}
+        <div className="grid size-12 place-items-center overflow-hidden border border-line bg-white/5 text-sm font-bold">
+          <Image
+            src="/media/work/images/saya.PNG"
+            alt="Mangelek Gabriel Nicholas Tambun"
+            width={96}
+            height={96}
+            className="h-full w-full object-cover"
+          />
         </div>
         <div className="font-bold leading-[1.08]">
           {profile.name.map((line) => <p key={line}>{line}</p>)}

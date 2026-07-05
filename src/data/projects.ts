@@ -84,7 +84,7 @@ export const projects: Project[] = [
   item("stockforecast", "StockForecast", "project", "dark", "web", "video"),
   item("absensiyolo", "AbsensiYOLO", "project", "dark", "web", "video"),
   item("bki", "BKI", "project", "dark", "web", "video"),
-  item("llm-tft", "Prima Insan Mulia Hospital ", "project", "dark", "model", "video"),
+  item("llm-tft", "Hospital ", "project", "dark", "model", "video"),
 ];
 
 export const awards: Project[] = [
