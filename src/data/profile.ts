@@ -33,7 +33,6 @@ export const highlights = [
   "MAPE 2.13%",
   "R² 0.988",
   "12-stage ETL",
-  "26 API Services",
   "16-class Recognition",
 ];
 
