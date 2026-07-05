@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Turret+Road:wght@200;300;400;500;700;800&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -23,6 +24,7 @@ button { font: inherit; }
 ::selection { background: #635bff; color: white; }
 .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 .hide-scrollbar::-webkit-scrollbar { display: none; }
+.top-display-font { font-family: "Turret Road", "Arial Narrow", "Helvetica Neue", Arial, sans-serif; }
 .scanline { background: repeating-linear-gradient(90deg, transparent 0 7px, rgba(255,255,255,.22) 7px 9px); }
 .noise::before {
   pointer-events: none; content: ""; position: fixed; inset: 0; opacity: .035;
