@@ -41,7 +41,7 @@ function MobileLanding() {
       </section>
       <div className="mt-6 grid gap-3 text-center text-xs font-black uppercase tracking-[0.06em]">
         <a href={emailLink} className="border border-dashed border-line py-5">Email Me</a>
-        <a href="/cv" className="border border-dashed border-line py-5">View CV</a>
+        <a href="/resume" className="border border-dashed border-line py-5">View CV</a>
       </div>
     </>
   );
