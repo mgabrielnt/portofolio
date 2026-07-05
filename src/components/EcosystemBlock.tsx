@@ -4,7 +4,7 @@ import { DotLabel } from "./DotLabel";
 export function EcosystemBlock() {
   return (
     <article>
-      <DotLabel>Ecosystem</DotLabel>
+      <DotLabel>Capabilities</DotLabel>
       <div className="text-sm font-bold leading-tight">
         {ecosystem.map((item) => <p key={item}>{item}</p>)}
       </div>
