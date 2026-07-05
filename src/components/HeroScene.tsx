@@ -57,7 +57,7 @@ export function HeroScene() {
             className="absolute top-0 flex h-full items-center text-left"
             style={{ left: scene.x, width: "min(660px, calc(100vw - 48px))", opacity, transform: `translate(${scene.shift}, ${y}px)` }}
           >
-            <h1 style={{ fontSize: "clamp(24px, min(2.05vw, 4vh), 38px)", lineHeight: 1.18, letterSpacing: "-0.045em" }} className="font-black">
+            <h1 style={{ fontSize: "clamp(24px, min(2.05vw, 4vh), 38px)", lineHeight: 1.18, letterSpacing: "-0.045em" }} className="hero-center-font font-black">
               {scene.copy}
             </h1>
           </div>
