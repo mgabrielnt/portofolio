@@ -4,16 +4,51 @@ export const metadata = { title: "CV" };
 
 export default function CvPage() {
   return (
-    <main className="grid min-h-screen place-items-center bg-ink px-6 text-paper">
-      <section className="max-w-xl text-center">
-        <p className="text-xs font-black uppercase tracking-[0.24em] text-accent">CV</p>
-        <h1 className="mt-4 text-5xl font-black tracking-[-0.08em]">CV placeholder.</h1>
-        <p className="mt-5 text-sm font-bold leading-tight text-muted">
-          Add your final PDF to public/cv/mangelek-gabriel-cv.pdf later.
-        </p>
-        <Link href="/" className="mt-8 inline-block border border-line px-5 py-3 text-xs font-black">
-          BACK HOME
-        </Link>
+    <main className="min-h-screen bg-ink px-6 py-10 text-paper">
+      <section className="mx-auto max-w-5xl">
+        <div className="mb-6 flex items-center justify-between gap-4">
+          <div>
+            <p className="text-xs font-black uppercase tracking-[0.24em] text-accent">
+              CV
+            </p>
+            <h1 className="mt-3 text-4xl font-black tracking-[-0.06em]">
+              Mangelek Gabriel Nicholas Tambun
+            </h1>
+          </div>
+
+          <Link
+            href="/"
+            className="border border-line px-5 py-3 text-xs font-black"
+          >
+            BACK HOME
+          </Link>
+        </div>
+
+        <div className="mb-5 flex gap-3">
+          <a
+            href="/cv/mangelek-gabriel-cv.pdf"
+            target="_blank"
+            className="border border-line px-5 py-3 text-xs font-black"
+          >
+            OPEN CV
+          </a>
+
+          <a
+            href="/cv/mangelek-gabriel-cv.pdf"
+            download
+            className="border border-line px-5 py-3 text-xs font-black"
+          >
+            DOWNLOAD CV
+          </a>
+        </div>
+
+        <div className="overflow-hidden rounded-2xl border border-line bg-white">
+          <iframe
+            src="/cv/mangelek-gabriel-cv.pdf"
+            className="h-[85vh] w-full"
+            title="Mangelek Gabriel CV"
+          />
+        </div>
       </section>
     </main>
   );

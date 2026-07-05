@@ -24,7 +24,7 @@ export type Project = {
   media: WorkMedia;
 };
 
-type CoverFile = `${string}.${"svg" | "webp" | "png"}`;
+type CoverFile = `${string}.${"svg" | "webp" | "png" | "jpg" | "jpeg"}`;
 
 const stack = ["Next.js", "Python", "AI/Data"];
 const metrics = ["Research-ready", "Deploy-ready", "Portfolio-ready"];
@@ -33,6 +33,14 @@ const coverBySlug: Record<string, CoverFile> = {
   stockforecast: "stockforecast-pro-cover.svg",
   absensiyolo: "absensiyolo-cover.svg",
   bki: "bki.png",
+  "llm-tft": "llm-tft.png",
+  "aca-cloud": "aca-cloud.png",
+  "oracle-db": "oracle-db.png",
+  "data-analys": "data-analys.jpg",
+  "data-science-101": "data-science-101.jpg",
+  "data-science-methodology": "data-science-methodology.jpg",
+  "data-visualitation": "data-visualitation.jpg",
+  "Asisten-praktikum": "Asisten-praktikum.jpeg",
 };
 
 function media(slug: string, title: string): WorkMedia {
@@ -75,23 +83,18 @@ function item(
 export const projects: Project[] = [
   item("stockforecast", "StockForecast", "project", "dark", "web", "video"),
   item("absensiyolo", "AbsensiYOLO", "project", "dark", "web", "video"),
-  item("bki", "BKIFinanceDashboard", "project", "dark", "web", "video"),
-  item("llm-tft", "LLM-TFT", "project", "dark", "model", "video"),
-  item("ai-sentiment", "AI Sentiment", "project", "dark", "pipeline"),
-  item("dashboard", "Dashboard Infrastructure", "project", "light", "web", "video"),
-  item("portfolio-system", "Portfolio System", "project", "dark", "web", "video"),
-  item("market-pipeline", "Market Pipeline", "project", "light", "pipeline"),
-  item("xai-reports", "XAI Reports", "project", "dark", "chart"),
-  item("resume-matcher", "Resume Matcher", "project", "light", "model"),
+  item("bki", "BKI", "project", "dark", "web", "video"),
+  item("llm-tft", "Prima Insan Mulia Hospital ", "project", "dark", "model", "video"),
 ];
 
 export const awards: Project[] = [
-  item("llm-tft-thesis", "LLM-TFT Thesis", "award", "light", "award"),
-  item("data-science-101", "Data Science 101", "award", "dark", "award"),
+  item("data-analys", "Data Analysis", "award", "dark", "award"),
   item("aca-cloud", "ACA Cloud", "award", "dark", "award"),
-  item("oracle-db", "Oracle DB", "award", "light", "award"),
-  item("mandiri-sekuritas", "Mandiri Sekuritas", "award", "dark", "award"),
-  item("undip", "Universitas Diponegoro", "award", "light", "award"),
+  item("oracle-db", "Oracle DB", "award", "dark", "award"),
+  item("data-science-101", "Data Science 101", "award", "dark", "award"),
+  item("data-science-methodology", "Data Science Methodology", "award", "dark", "award"),
+  item("data-visualitation", "Data Visualization", "award", "dark", "award"),
+  item("Asisten-praktikum", "Universitas Diponegoro", "award", "light", "award"),
 ];
 
 export const allWork = [...projects, ...awards];
