@@ -40,7 +40,7 @@ function MobileLanding() {
     <>
       <section className="mt-8 space-y-7 text-[25px] font-black leading-[1.08] tracking-[-0.055em]">
         <p>I build intelligent data systems and launch-ready web portfolios. I coordinate clean dashboard launches and AI product previews.</p>
-        <p>I’m based in Indonesia, building global-ready AI portfolios for data, dashboard, and web engineering roles.</p>
+        <p>I’m based in Indonesia, building global-ready digital products. I design forecasting systems, dashboard products, and web experiences.</p>
       </section>
       <div className="mt-16 -mx-3"><InfiniteRail items={projects} /></div>
       <section className="mt-16 text-sm font-bold leading-tight">

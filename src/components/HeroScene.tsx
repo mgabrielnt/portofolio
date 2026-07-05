@@ -16,7 +16,7 @@ const scenes = [
   {
     x: "calc(100% - 24px)",
     shift: "-100%",
-    copy: "I’m based in Indonesia, building global-ready AI portfolios. I design forecasting systems, dashboard products, and web experiences.",
+    copy: "I’m based in Indonesia, building global-ready digital products. I design forecasting systems, dashboard products, and web experiences.",
   },
 ];
 
