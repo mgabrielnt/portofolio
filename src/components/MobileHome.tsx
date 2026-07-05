@@ -25,6 +25,8 @@ export function MobileHome() {
 }
 
 function MobileLanding() {
+  const emailLink = links.find((link) => link.label === "Email")?.href ?? "/";
+
   return (
     <>
       <section className="mt-8 space-y-7 text-[25px] font-black leading-[1.08] tracking-[-0.055em]">
@@ -35,14 +37,11 @@ function MobileLanding() {
       <section className="mt-16 text-sm font-bold leading-tight">
         <p className="mb-4"><span className="text-accent">●</span> CONNECT</p>
         {links.map((link) => <a key={link.label} href={link.href} className="block">{link.label}</a>)}
-        <p className="mt-6">{profile.availability}</p><p>Book 30-Min Discovery Call</p>
+        <p className="mt-6">{profile.availability}</p><p>{profile.status}</p>
       </section>
       <div className="mt-6 grid gap-3 text-center text-xs font-black uppercase tracking-[0.06em]">
-        <a href="mailto:your.email@example.com" className="border border-dashed border-line py-5">Schedule a call</a>
-        <a href="/cv" className="border border-dashed border-line py-5">Cost estimate</a>
-      </div>
-      <div className="fixed bottom-4 left-1/2 z-20 flex -translate-x-1/2 rounded-full border border-line bg-ink/80 p-1 text-[11px] font-black backdrop-blur">
-        <button className="rounded-full bg-white/15 px-4 py-2">Projects ①</button><button className="rounded-full px-4 py-2 text-muted">Awards ②</button>
+        <a href={emailLink} className="border border-dashed border-line py-5">Email Me</a>
+        <a href="/cv" className="border border-dashed border-line py-5">View CV</a>
       </div>
     </>
   );
@@ -51,9 +50,9 @@ function MobileLanding() {
 function Credentials() {
   return (
     <section className="space-y-10 pt-6 text-[16px] font-bold leading-tight">
-      <div><p>{profile.roles.join(" / ")}</p><Badge>Avg. project scope</Badge>{metrics.map((m) => <p key={m}>{m}</p>)}</div>
-      <div><h2 className="mb-4 text-3xl font-black tracking-[-0.06em]">Recognition</h2><Badge>Certifications / Thesis / Projects</Badge>{recognitions.map((item) => <p key={item}>{item}</p>)}<Badge>Highlights</Badge>{highlights.map((item) => <p key={item}>{item}</p>)}</div>
-      <div><h2 className="mb-4 text-3xl font-black tracking-[-0.06em]">Brands</h2>{ecosystem.map((item) => <p key={item}>{item}</p>)}</div>
+      <div><p>{profile.roles.join(" / ")}</p><Badge>Core Projects</Badge>{metrics.map((m) => <p key={m}>{m}</p>)}</div>
+      <div><h2 className="mb-4 text-3xl font-black tracking-[-0.06em]">Credentials</h2><Badge>Projects / Thesis / Certifications</Badge>{recognitions.map((item) => <p key={item}>{item}</p>)}<Badge>Highlights</Badge>{highlights.map((item) => <p key={item}>{item}</p>)}</div>
+      <div><h2 className="mb-4 text-3xl font-black tracking-[-0.06em]">Skills</h2>{ecosystem.map((item) => <p key={item}>{item}</p>)}</div>
     </section>
   );
 }
