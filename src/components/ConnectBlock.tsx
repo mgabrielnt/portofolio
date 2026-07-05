@@ -18,8 +18,8 @@ export function ConnectBlock() {
         <p>{profile.status}</p>
       </div>
       <div className="mt-4 flex gap-3 text-[11px] font-black uppercase text-muted">
-        <Link href="mailto:nicholas.tbn26@gmail.com" className="border border-line px-4 py-3">Contact</Link>
-        <Link href="/cv/mangelek-gabriel-cv.pdf" className="border border-line px-4 py-3">CV</Link>
+        <Link href="mailto:nicholas.tbn26@gmail.com" className="border border-line px-4 py-3 transition hover:border-accent hover:text-accent">Contact</Link>
+        <Link href="/cv" className="bg-paper px-4 py-3 text-ink transition hover:bg-accent hover:text-white">View CV</Link>
       </div>
     </article>
   );
