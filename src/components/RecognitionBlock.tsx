@@ -5,8 +5,8 @@ import { Tag } from "./Tag";
 export function RecognitionBlock() {
   return (
     <article>
-      <DotLabel>Recognition</DotLabel>
-      <Tag>Certifications / Thesis / Projects</Tag>
+      <DotLabel>Impact</DotLabel>
+      <Tag>Thesis / Projects / Experience</Tag>
       <div className="mt-3 text-sm font-bold leading-tight">
         {recognitions.map((item) => <p key={item}>{item}</p>)}
       </div>
