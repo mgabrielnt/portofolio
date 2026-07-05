@@ -45,7 +45,7 @@ export function HeroScene() {
   return (
     <section
       className="pointer-events-none absolute left-0 right-0 z-0"
-      style={{ bottom: "clamp(58px, 8.2vh, 98px)", height: "clamp(132px, 18vh, 170px)" }}
+      style={{ bottom: "clamp(20px, 4vh, 60px)", height: "clamp(132px, 18vh, 170px)" }}
     >
       {scenes.map((scene, index) => {
         const center = index / (scenes.length - 1);
